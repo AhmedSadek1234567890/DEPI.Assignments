@@ -11,11 +11,16 @@ WHERE salary BETWEEN 2000 AND 5000
 /*Task 2: Using JOINs and Aliases*/
 /*Write a SQL query to display the employee names along with their respective department names.
 Use aliases for table names for better readability*/
-SELECT e.first_name AS employee_name, d.name AS department_name
-FROM employees e
-INNER JOIN departments d
-  ON e.department_id = d.department_id
-ORDER BY d.name ASC;
+-- Select the employee's first name and the name of their department
+   SELECT employees.first_name AS employee_name,  
+        department_name  
+FROM employees  
+INNER JOIN departments  
+  ON employees.department_id = departments.department_id  
+ORDER BY ; 
+             
+             
+       
 
 
 
