@@ -1,0 +1,41 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load Titanic dataset
+titanic = sns.load_dataset('titanic')
+
+# Display the first 5 rows of the dataset
+print(titanic.head())
+
+# 📊 1. Bar Chart - Number of survivors by gender
+plt.figure(figsize=(6,4))
+sns.barplot(x=titanic['sex'], y=titanic['survived'])
+plt.title('Number of Survivors by Gender')
+plt.xlabel('Gender')
+plt.ylabel('Survival Rate')
+plt.show()
+
+# 📊 2. Histogram - Age distribution of passengers
+plt.figure(figsize=(6,4))
+sns.histplot(titanic['age'].dropna(), bins=20, kde=True)
+plt.title('Age Distribution of Titanic Passengers')
+plt.xlabel('Age')
+plt.ylabel('Number of Passengers')
+plt.show()
+
+# 📊 3. Count Plot - Number of passengers by class (Pclass)
+plt.figure(figsize=(6,4))
+sns.countplot(x='pclass', data=titanic, palette='pastel')
+plt.title('Number of Passengers in Each Class')
+plt.xlabel('Class')
+plt.ylabel('Number of Passengers')
+plt.show()
+
+# 📊 4. Box Plot - Comparison of age distribution across classes
+plt.figure(figsize=(6,4))
+sns.boxplot(x='pclass', y='age', data=titanic, palette='coolwarm')
+plt.title('Age Distribution of Passengers by Class')
+plt.xlabel('Class')
+plt.ylabel('Age')
+plt.show()
